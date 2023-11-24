@@ -10,8 +10,25 @@ import SnapKit
 
 class WeatherVC: UIViewController {
 
+    // MARK: - UI components
+    let weatherView = CurrentView(viewModel: CurrentVM())
+        
+    // MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(weatherView)
+        setupConstraints()
     }
+    
+    // MARK: - Setup UI 
+    func setupConstraints() {
+        weatherView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+    }
+        
     
 }

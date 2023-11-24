@@ -10,6 +10,8 @@ import Foundation
 class CurrentVM {
     
     
-    
+    func didTapSearch() {
+        // Handle the search button tap in the ViewModel
+    }
 
 }

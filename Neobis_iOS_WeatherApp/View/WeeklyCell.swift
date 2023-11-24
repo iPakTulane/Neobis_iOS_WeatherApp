@@ -10,6 +10,9 @@ import SnapKit
 
 class WeeklyCell: UICollectionViewCell {
     
+    // MARK: - View model
+    var viewModel: WeeklyVM
+    
     // MARK: - UI components
     private lazy var dayLabel: UILabel = {
         let label = UILabel()
@@ -44,6 +47,7 @@ class WeeklyCell: UICollectionViewCell {
     
     // MARK: - Initialization
     override init(frame: CGRect) {
+        viewModel = WeeklyVM()
         super.init(frame: frame)
         setupHierarchy()
         setupConstraints()
@@ -87,7 +91,7 @@ class WeeklyCell: UICollectionViewCell {
         // Setup temperatureLabel
         temperatureLabel.snp.makeConstraints { make in
             make.centerX.equalTo(containerView)
-            make.bottom.equalTo(containerView.snp.bottom).offset(10) //.offset(-10)
+            make.bottom.equalTo(containerView.snp.bottom).offset(-10)
             make.width.equalTo(25)
             make.height.equalTo(15)
         }

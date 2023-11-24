@@ -83,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				BAE73A532B0E199A0071D75A /* AppDelegate.swift */,
-				BAE73A672B0E644B0071D75A /* SearchVC.swift */,
 				BAE73A732B0E66920071D75A /* Model */,
 				BAE73A722B0E668D0071D75A /* View */,
 				BAE73A712B0E66840071D75A /* ViewModel */,
@@ -107,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				BAE73A762B0F225D0071D75A /* CurrentView.swift */,
+				BAE73A672B0E644B0071D75A /* SearchVC.swift */,
 				BAE73A692B0E64780071D75A /* WeeklyCell.swift */,
 				BAE73A572B0E199A0071D75A /* WeatherVC.swift */,
 			);
