@@ -38,11 +38,11 @@ Throughout the development of this project, I gained valuable insights into work
 ## How to Contact
 For further information, inquiries, or contributions, feel free to contact:
 
-Author: **Igor Pak** 
-GitHub: [GitHub Profile](https://github.com/iPakTulane)
-Email: [ipak.tulane@gmail.com](mailto:ipak.tulane@gmail.com)
-LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/igor-pak/)
-Telegram: [@iPakDev](https://t.me/iPakDev)
+- Author: **Igor Pak** 
+- GitHub: [GitHub Profile](https://github.com/iPakTulane)
+- Email: [ipak.tulane@gmail.com](mailto:ipak.tulane@gmail.com)
+- LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/igor-pak/)
+- Telegram: [@iPak_Dev](https://t.me/iPak_Dev)
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
