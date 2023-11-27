@@ -100,9 +100,9 @@ class DailyCell: UICollectionViewCell {
     
     // MARK: - Configure UI
     func configureCell(with data: WeatherData) {
-//        dayLabel.text = data.day
-//        iconView.image = UIImage(named: data.image)
-//        temperatureLabel.text = data.temperature
+        dayLabel.text = String(data.current.dt)
+        iconView.image = UIImage(named: data.current.weather[0].icon)
+        temperatureLabel.text = String(data.current.temp)
     }
     
 }

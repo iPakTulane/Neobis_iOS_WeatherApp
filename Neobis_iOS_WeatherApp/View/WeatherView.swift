@@ -14,13 +14,13 @@ class WeatherView: UIView {
     private var viewModel: WeatherViewModel
     
     // MARK: - Data
-    let dailyModel: [WeatherData] = [
-        WeatherData(day: "Sunday", image: "snow", temperature: "10°C"),
-        WeatherData(day: "Monday", image: "sunAndRain", temperature: "8°C"),
-        WeatherData(day: "Tuesday", image: "hail", temperature: "3°C"),
-        WeatherData(day: "Thursday", image: "thunder", temperature: "5°C"),
-        WeatherData(day: "Friday", image: "clouds", temperature: "9°C"),
-    ]
+//    let dailyModel: [WeatherData] = [
+//        WeatherData(day: "Sunday", image: "snow", temperature: "10°C"),
+//        WeatherData(day: "Monday", image: "sunAndRain", temperature: "8°C"),
+//        WeatherData(day: "Tuesday", image: "hail", temperature: "3°C"),
+//        WeatherData(day: "Thursday", image: "thunder", temperature: "5°C"),
+//        WeatherData(day: "Friday", image: "clouds", temperature: "9°C"),
+//    ]
     
     // MARK: - UI components
     private lazy var searchButton: UIButton = {
@@ -363,10 +363,10 @@ class WeatherView: UIView {
         }
     }
     
-    // MARK: - Add action
-    @objc private func didTapSearch() {
-        viewModel.didTapSearch()
-    }
+//    // MARK: - Add action
+//    @objc private func didTapSearch() {
+//        viewModel.didTapSearch()
+//    }
     
 }
 

@@ -36,28 +36,28 @@ class WeatherViewModel {
 
         return dateFormatter.string(from: currentDate)
     }
-
+    
     func updateWeatherData(weatherData: WeatherData) {
         // Update current weather properties
-        if let currentWeather = weatherData.current {
-            currentTemperature = "\(currentWeather.temp) °C"
-            if let weather = currentWeather.weather.first {
-                weatherIcon = weather.icon
-            }
-            windSpeed = "\(currentWeather.windSpeed) m/s"
-            humidity = "\(currentWeather.humidity)%"
-            visibility = "\(currentWeather.visibility) meters"
-            airPressure = "\(currentWeather.pressure) hPa"
+        let currentWeather = weatherData.current
+        currentTemperature = "\(currentWeather.temp) °C"
+        if let weather = currentWeather.weather.first {
+            weatherIcon = weather.icon
         }
+        windSpeed = "\(currentWeather.windSpeed) m/s"
+        humidity = "\(currentWeather.humidity)%"
+        visibility = "\(currentWeather.visibility) meters"
+        airPressure = "\(currentWeather.pressure) hPa"
 
         // Update daily weather properties
-        if let dailyData = weatherData.daily {
-            dailyWeather = dailyData.prefix(5).map { DailyWeatherViewModel(dailyData: $0) }
-        }
+        let dailyData = weatherData.daily
+        dailyWeather = dailyData.prefix(5).map { DailyWeatherViewModel(dailyData: $0) }
     }
+    
 
     func fetchWeatherData(completion: @escaping (Result<WeatherData, APIError>) -> Void) {
-        // Replace "YOUR_API_KEY" with your actual API key
+        
+        // Replace your actual API key
         let apiKey = "edb8b212378fdca33a7ce86abac712d4"
         let apiUrlString = "https://api.openweathermap.org/data/2.8/onecall?lat=41.311081&lon=69.240562&exclude=hourly,minutely&limit=6&appid=\(apiKey)"
 
@@ -79,13 +79,18 @@ class WeatherViewModel {
     }
 }
 
-
 struct DailyWeatherViewModel {
-    let weekday: String
-    let weatherIcon: String
-    let temperature: String
+    var weekday: String
+    var weatherIcon: String
+    var temperature: String
 
     init(dailyData: Daily) {
+        // Initialize stored properties first
+        self.weekday = ""
+        self.weatherIcon = ""
+        self.temperature = ""
+
+        // Now call methods or use 'self' after initializing stored properties
         self.weekday = getWeekday(from: dailyData.dt)
         self.weatherIcon = dailyData.weather.first?.icon ?? ""
         self.temperature = "\(Int(dailyData.temp.day)) °C"
@@ -98,6 +103,5 @@ struct DailyWeatherViewModel {
         return dateFormatter.string(from: date)
     }
 }
-
 
 
