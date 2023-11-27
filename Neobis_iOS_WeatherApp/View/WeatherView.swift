@@ -1,5 +1,5 @@
 //
-//  CurrentView.swift
+//  WeatherView.swift
 //  Neobis_iOS_WeatherApp
 //
 //  Created by iPak Tulane on 23/11/23.
@@ -8,18 +8,18 @@
 import UIKit
 import SnapKit
 
-class CurrentView: UIView {
+class WeatherView: UIView {
     
     // MARK: - View model
-    private var viewModel: CurrentVM
+    private var viewModel: WeatherViewModel
     
     // MARK: - Data
-    let weeklyModel: [WeeklyModel] = [
-        WeeklyModel(day: "Sunday", image: "snow", temperature: "10°C"),
-        WeeklyModel(day: "Monday", image: "sunAndRain", temperature: "8°C"),
-        WeeklyModel(day: "Tuesday", image: "hail", temperature: "3°C"),
-        WeeklyModel(day: "Thursday", image: "thunder", temperature: "5°C"),
-        WeeklyModel(day: "Friday", image: "clouds", temperature: "9°C"),
+    let dailyModel: [WeatherData] = [
+        WeatherData(day: "Sunday", image: "snow", temperature: "10°C"),
+        WeatherData(day: "Monday", image: "sunAndRain", temperature: "8°C"),
+        WeatherData(day: "Tuesday", image: "hail", temperature: "3°C"),
+        WeatherData(day: "Thursday", image: "thunder", temperature: "5°C"),
+        WeatherData(day: "Friday", image: "clouds", temperature: "9°C"),
     ]
     
     // MARK: - UI components
@@ -179,15 +179,7 @@ class CurrentView: UIView {
     }()
     
     // MARK: - Initialization
-//    init(frame: CGRect, viewModel: CurrentVM) {
-//        self.viewModel = viewModel
-//        super.init(frame: frame)
-//        setupHierarchy()
-//        setupConstraints()
-//    setupGradient()
-//    }
-    
-    init(viewModel: CurrentVM) {
+    init(viewModel: WeatherViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         setupHierarchy()
@@ -379,15 +371,15 @@ class CurrentView: UIView {
 }
 
 // MARK: - Extension
-extension CurrentView: UICollectionViewDelegate, UICollectionViewDataSource {
+extension WeatherView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeeklyCell", for: indexPath) as! WeeklyCell
-        let data = weeklyModel[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DailyCell", for: indexPath) as! DailyCell
+        let data = dailyModel[indexPath.item]
         cell.configureCell(with: data)
         return cell
     }

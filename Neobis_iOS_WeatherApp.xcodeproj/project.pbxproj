@@ -9,16 +9,15 @@
 /* Begin PBXBuildFile section */
 		5FEEEF2E954197C1206DF90D /* Pods_Neobis_iOS_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0F9EAFB816AB4F48A03134 /* Pods_Neobis_iOS_WeatherApp.framework */; };
 		BAE73A542B0E199A0071D75A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A532B0E199A0071D75A /* AppDelegate.swift */; };
-		BAE73A582B0E199A0071D75A /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A572B0E199A0071D75A /* WeatherVC.swift */; };
+		BAE73A582B0E199A0071D75A /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A572B0E199A0071D75A /* WeatherViewController.swift */; };
 		BAE73A5D2B0E199B0071D75A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE73A5C2B0E199B0071D75A /* Assets.xcassets */; };
 		BAE73A602B0E199B0071D75A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE73A5E2B0E199B0071D75A /* LaunchScreen.storyboard */; };
-		BAE73A682B0E644B0071D75A /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A672B0E644B0071D75A /* SearchVC.swift */; };
-		BAE73A6A2B0E64780071D75A /* WeeklyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A692B0E64780071D75A /* WeeklyCell.swift */; };
-		BAE73A702B0E64C10071D75A /* WeeklyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A6F2B0E64C10071D75A /* WeeklyModel.swift */; };
-		BAE73A752B0F1F6B0071D75A /* CurrentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A742B0F1F6B0071D75A /* CurrentModel.swift */; };
-		BAE73A772B0F225D0071D75A /* CurrentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A762B0F225D0071D75A /* CurrentView.swift */; };
-		BAE73A792B0FAE810071D75A /* WeeklyVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A782B0FAE810071D75A /* WeeklyVM.swift */; };
-		BAE73A7B2B0FAE8C0071D75A /* CurrentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A7A2B0FAE8C0071D75A /* CurrentVM.swift */; };
+		BAE73A682B0E644B0071D75A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A672B0E644B0071D75A /* SearchViewController.swift */; };
+		BAE73A6A2B0E64780071D75A /* DailyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A692B0E64780071D75A /* DailyCell.swift */; };
+		BAE73A772B0F225D0071D75A /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A762B0F225D0071D75A /* WeatherView.swift */; };
+		BAE73A7B2B0FAE8C0071D75A /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A7A2B0FAE8C0071D75A /* WeatherViewModel.swift */; };
+		BAE73A8B2B139EFE0071D75A /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A8A2B139EFE0071D75A /* NetworkingService.swift */; };
+		BAE73A8D2B13A2070071D75A /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A8C2B13A2070071D75A /* WeatherData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,17 +25,16 @@
 		88E31B2FDDCE73E57CCA495C /* Pods-Neobis_iOS_WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neobis_iOS_WeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-Neobis_iOS_WeatherApp/Pods-Neobis_iOS_WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BAE73A502B0E199A0071D75A /* Neobis_iOS_WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neobis_iOS_WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE73A532B0E199A0071D75A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BAE73A572B0E199A0071D75A /* WeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
+		BAE73A572B0E199A0071D75A /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		BAE73A5C2B0E199B0071D75A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAE73A5F2B0E199B0071D75A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAE73A612B0E199B0071D75A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAE73A672B0E644B0071D75A /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
-		BAE73A692B0E64780071D75A /* WeeklyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCell.swift; sourceTree = "<group>"; };
-		BAE73A6F2B0E64C10071D75A /* WeeklyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyModel.swift; sourceTree = "<group>"; };
-		BAE73A742B0F1F6B0071D75A /* CurrentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentModel.swift; sourceTree = "<group>"; };
-		BAE73A762B0F225D0071D75A /* CurrentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentView.swift; sourceTree = "<group>"; };
-		BAE73A782B0FAE810071D75A /* WeeklyVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyVM.swift; sourceTree = "<group>"; };
-		BAE73A7A2B0FAE8C0071D75A /* CurrentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentVM.swift; sourceTree = "<group>"; };
+		BAE73A672B0E644B0071D75A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BAE73A692B0E64780071D75A /* DailyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCell.swift; sourceTree = "<group>"; };
+		BAE73A762B0F225D0071D75A /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		BAE73A7A2B0FAE8C0071D75A /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		BAE73A8A2B139EFE0071D75A /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		BAE73A8C2B13A2070071D75A /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		FE0F9EAFB816AB4F48A03134 /* Pods_Neobis_iOS_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Neobis_iOS_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				BAE73A532B0E199A0071D75A /* AppDelegate.swift */,
+				BAE73A572B0E199A0071D75A /* WeatherViewController.swift */,
+				BAE73A672B0E644B0071D75A /* SearchViewController.swift */,
 				BAE73A732B0E66920071D75A /* Model */,
 				BAE73A722B0E668D0071D75A /* View */,
 				BAE73A712B0E66840071D75A /* ViewModel */,
@@ -96,8 +96,8 @@
 		BAE73A712B0E66840071D75A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				BAE73A7A2B0FAE8C0071D75A /* CurrentVM.swift */,
-				BAE73A782B0FAE810071D75A /* WeeklyVM.swift */,
+				BAE73A7A2B0FAE8C0071D75A /* WeatherViewModel.swift */,
+				BAE73A8A2B139EFE0071D75A /* NetworkingService.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -105,10 +105,8 @@
 		BAE73A722B0E668D0071D75A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BAE73A762B0F225D0071D75A /* CurrentView.swift */,
-				BAE73A672B0E644B0071D75A /* SearchVC.swift */,
-				BAE73A692B0E64780071D75A /* WeeklyCell.swift */,
-				BAE73A572B0E199A0071D75A /* WeatherVC.swift */,
+				BAE73A762B0F225D0071D75A /* WeatherView.swift */,
+				BAE73A692B0E64780071D75A /* DailyCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -116,8 +114,7 @@
 		BAE73A732B0E66920071D75A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BAE73A742B0F1F6B0071D75A /* CurrentModel.swift */,
-				BAE73A6F2B0E64C10071D75A /* WeeklyModel.swift */,
+				BAE73A8C2B13A2070071D75A /* WeatherData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,15 +241,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAE73A682B0E644B0071D75A /* SearchVC.swift in Sources */,
-				BAE73A7B2B0FAE8C0071D75A /* CurrentVM.swift in Sources */,
-				BAE73A582B0E199A0071D75A /* WeatherVC.swift in Sources */,
-				BAE73A752B0F1F6B0071D75A /* CurrentModel.swift in Sources */,
-				BAE73A6A2B0E64780071D75A /* WeeklyCell.swift in Sources */,
-				BAE73A772B0F225D0071D75A /* CurrentView.swift in Sources */,
-				BAE73A792B0FAE810071D75A /* WeeklyVM.swift in Sources */,
+				BAE73A8B2B139EFE0071D75A /* NetworkingService.swift in Sources */,
+				BAE73A682B0E644B0071D75A /* SearchViewController.swift in Sources */,
+				BAE73A7B2B0FAE8C0071D75A /* WeatherViewModel.swift in Sources */,
+				BAE73A582B0E199A0071D75A /* WeatherViewController.swift in Sources */,
+				BAE73A6A2B0E64780071D75A /* DailyCell.swift in Sources */,
+				BAE73A772B0F225D0071D75A /* WeatherView.swift in Sources */,
 				BAE73A542B0E199A0071D75A /* AppDelegate.swift in Sources */,
-				BAE73A702B0E64C10071D75A /* WeeklyModel.swift in Sources */,
+				BAE73A8D2B13A2070071D75A /* WeatherData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

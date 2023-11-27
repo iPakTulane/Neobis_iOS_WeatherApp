@@ -1,5 +1,5 @@
 //
-//  WeeklyCell.swift
+//  DailyCell.swift
 //  Neobis_iOS_WeatherApp
 //
 //  Created by iPak Tulane on 22/11/23.
@@ -8,10 +8,10 @@
 import UIKit
 import SnapKit
 
-class WeeklyCell: UICollectionViewCell {
+class DailyCell: UICollectionViewCell {
     
     // MARK: - View model
-    var viewModel: WeeklyVM
+    var viewModel: WeatherViewModel
     
     // MARK: - UI components
     private lazy var dayLabel: UILabel = {
@@ -47,7 +47,7 @@ class WeeklyCell: UICollectionViewCell {
     
     // MARK: - Initialization
     override init(frame: CGRect) {
-        viewModel = WeeklyVM()
+        viewModel = WeatherViewModel()
         super.init(frame: frame)
         setupHierarchy()
         setupConstraints()
@@ -99,10 +99,10 @@ class WeeklyCell: UICollectionViewCell {
     }
     
     // MARK: - Configure UI
-    func configureCell(with data: WeeklyModel) {
-        dayLabel.text = data.day
-        iconView.image = UIImage(named: data.image)
-        temperatureLabel.text = data.temperature
+    func configureCell(with data: WeatherData) {
+//        dayLabel.text = data.day
+//        iconView.image = UIImage(named: data.image)
+//        temperatureLabel.text = data.temperature
     }
     
 }

@@ -1,5 +1,5 @@
 //
-//  SearchVC.swift
+//  SearchViewController.swift
 //  Neobis_iOS_WeatherApp
 //
 //  Created by iPak Tulane on 22/11/23.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SearchVC: UIViewController {
+class SearchViewController: UIViewController {
     
     // MARK: - UI components
     
@@ -121,7 +121,7 @@ class SearchVC: UIViewController {
     }
     
     @objc func didTapClose() {
-        let vc = WeatherVC()
+        let vc = WeatherViewController()
         present(vc, animated: true, completion: nil)
     }
 }

@@ -8,10 +8,10 @@
 import UIKit
 import SnapKit
 
-class WeatherVC: UIViewController {
+class WeatherViewController: UIViewController {
 
     // MARK: - UI components
-    let weatherView = CurrentView(viewModel: CurrentVM())
+    let weatherView = WeatherView(viewModel: WeatherViewModel())
         
     // MARK: - Initialization
     override func viewDidLoad() {
