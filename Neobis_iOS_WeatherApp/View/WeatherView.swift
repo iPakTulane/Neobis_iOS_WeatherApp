@@ -5,33 +5,29 @@
 //  Created by iPak Tulane on 23/11/23.
 //
 
+import Foundation
 import UIKit
 import SnapKit
 
+
+// MARK: - WeatherViewDelegate
+protocol WeatherViewDelegate: AnyObject {
+    func didTapSearch()
+}
+
 class WeatherView: UIView {
     
-    // MARK: - View model
-    private var viewModel: WeatherViewModel
-    
-    // MARK: - Data
-//    let dailyModel: [WeatherData] = [
-//        WeatherData(day: "Sunday", image: "snow", temperature: "10°C"),
-//        WeatherData(day: "Monday", image: "sunAndRain", temperature: "8°C"),
-//        WeatherData(day: "Tuesday", image: "hail", temperature: "3°C"),
-//        WeatherData(day: "Thursday", image: "thunder", temperature: "5°C"),
-//        WeatherData(day: "Friday", image: "clouds", temperature: "9°C"),
-//    ]
+    weak var delegate: WeatherViewDelegate?
     
     // MARK: - UI components
-    private lazy var searchButton: UIButton = {
+    var searchButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "search"), for: .normal)
         button.tintColor = .black
-        button.addTarget(self, action: #selector(didTapSearch), for: .touchUpInside)
         return button
     }()
     
-    private lazy var dateLabel: UILabel = {
+    var dateLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10)
         label.textColor = .white
@@ -40,7 +36,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    private lazy var cityLabel: UILabel = {
+    var cityLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 30)
         label.textColor = .white
@@ -49,7 +45,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    private lazy var countryLabel: UILabel = {
+    var countryLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = .white
@@ -58,7 +54,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    private lazy var circleView: UIImageView = {
+    var circleView: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .white
         image.layer.cornerRadius = image.frame.width / 2
@@ -66,7 +62,7 @@ class WeatherView: UIView {
         return image
     }()
     
-    private lazy var iconView: UIImageView = {
+    var iconView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "snowfall")
         image.contentMode = .scaleAspectFill
@@ -74,7 +70,7 @@ class WeatherView: UIView {
         return image
     }()
     
-    private lazy var temperatureLabel: UILabel = {
+    var temperatureLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 50)
         label.textColor = .black
@@ -83,7 +79,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    private lazy var windLabel: UILabel = {
+    var windLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 10)
         label.textColor = .white
@@ -92,7 +88,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    private lazy var windInfoLabel: UILabel = {
+    var windInfoLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = .white
@@ -101,7 +97,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    private lazy var humidityLabel: UILabel = {
+    var humidityLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 10)
         label.textColor = .white
@@ -110,7 +106,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    private lazy var humidityInfoLabel: UILabel = {
+    var humidityInfoLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = .white
@@ -119,7 +115,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    private lazy var visibilityLabel: UILabel = {
+    var visibilityLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 10)
         label.textColor = .white
@@ -128,7 +124,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    private lazy var visibilityInfoLabel: UILabel = {
+    var visibilityInfoLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = .white
@@ -137,7 +133,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    private lazy var airLabel: UILabel = {
+    var airLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 10)
         label.textColor = .white
@@ -146,7 +142,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    private lazy var airInfoLabel: UILabel = {
+    var airInfoLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = .white
@@ -155,7 +151,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    private lazy var containerView: UIImageView = {
+    var containerView: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .white
         image.layer.cornerRadius = 40.0
@@ -164,48 +160,30 @@ class WeatherView: UIView {
         return image
     }()
     
-    private lazy var collectionView: UICollectionView = {
+    var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.dataSource = self
-        collectionView.delegate = self
         return collectionView
     }()
     
-    private lazy var gradientLayer: CAGradientLayer = {
+    var gradientLayer: CAGradientLayer = {
         let gradient = CAGradientLayer()
         return gradient
     }()
     
     // MARK: - Initialization
-    init(viewModel: WeatherViewModel) {
-        self.viewModel = viewModel
+    override init(frame: CGRect) {
         super.init(frame: .zero)
         setupHierarchy()
         setupConstraints()
         setupGradient()
     }
-        
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    func setupGradient() {
-        gradientLayer.frame = bounds
-        let startColor = UIColor(red: 0.189, green: 0.637, blue: 0.771, alpha: 1)
-        let endColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
-        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
-        gradientLayer.locations = [0, 1]
-        gradientLayer.startPoint = CGPoint(x: 0.25, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 0.75, y: 0.5)
-        gradientLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0, b: 1, c: -1, d: 0, tx: 1, ty: 0))
-        gradientLayer.bounds = bounds.insetBy(dx: -0.5 * bounds.size.width, dy: -0.5 * bounds.size.height)
-        gradientLayer.position = center
-        layer.insertSublayer(gradientLayer, at: 0)
-    }
     
     // MARK: - Setup UI
     func setupHierarchy() {
@@ -358,63 +336,26 @@ class WeatherView: UIView {
         collectionView.snp.makeConstraints { make in
             make.centerX.equalTo(containerView.snp.centerX)
             make.centerY.equalTo(containerView.snp.centerY)
-//            make.width.equalTo(70)
-//            make.height.equalTo(90)
         }
     }
     
-//    // MARK: - Add action
-//    @objc private func didTapSearch() {
-//        viewModel.didTapSearch()
-//    }
-    
-}
-
-// MARK: - Extension
-extension WeatherView: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+    func setupGradient() {
+        gradientLayer.frame = bounds
+        let startColor = UIColor(red: 0.189, green: 0.637, blue: 0.771, alpha: 1)
+        let endColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        gradientLayer.locations = [0, 1]
+        gradientLayer.startPoint = CGPoint(x: 0.25, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 0.75, y: 0.5)
+        gradientLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0, b: 1, c: -1, d: 0, tx: 1, ty: 0))
+        gradientLayer.bounds = bounds.insetBy(dx: -0.5 * bounds.size.width, dy: -0.5 * bounds.size.height)
+        gradientLayer.position = center
+        layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DailyCell", for: indexPath) as! DailyCell
-        let data = dailyModel[indexPath.item]
-        cell.configureCell(with: data)
-        return cell
+    // MARK: - Add button target 
+    func didTapSearch() {
+        self.delegate?.didTapSearch()
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 70, height: 90)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10 // Vertical spacing between rows
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10 // Horizontal spacing between rows
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-            return CGSize(width: collectionView.frame.width, height: 15) // Adjust the height as needed
-        }
-
-        func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-            if kind == UICollectionView.elementKindSectionHeader {
-                let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) 
-
-                let label = UILabel()
-                label.text = "The next 5 days"
-                label.font = UIFont.boldSystemFont(ofSize: 10)
-                label.textAlignment = .left
-                label.frame = CGRect(x: 0, y: 0, width: collectionView.frame.width, height: 12)
-                headerView.addSubview(label)
-
-                return headerView
-            }
-            return UICollectionReusableView()
-        }
     
 }

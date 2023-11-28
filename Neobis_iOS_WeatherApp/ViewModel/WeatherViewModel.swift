@@ -8,8 +8,17 @@
 
 import Foundation
 
+protocol WeatherViewModelDelegate: AnyObject {
+    func updateUI(with data: WeatherData)
+    var data: [WeatherData] { get }
+}
+
 class WeatherViewModel {
-    
+
+    weak var delegate: WeatherViewModelDelegate?
+
+    var weatherData: WeatherData?
+
     var currentLocation: String = "Tashkent, Uzbekistan" // Default location
 
     // Current weather properties
@@ -26,6 +35,7 @@ class WeatherViewModel {
     func updateLocation(city: String, country: String) {
         // Format the location string as "City, Country"
         currentLocation = "\(city), \(country)"
+        delegate?.updateWeather() // Notify delegate about the update
     }
 
     func getCurrentDate() -> String {
@@ -36,7 +46,7 @@ class WeatherViewModel {
 
         return dateFormatter.string(from: currentDate)
     }
-    
+
     func updateWeatherData(weatherData: WeatherData) {
         // Update current weather properties
         let currentWeather = weatherData.current
@@ -52,28 +62,28 @@ class WeatherViewModel {
         // Update daily weather properties
         let dailyData = weatherData.daily
         dailyWeather = dailyData.prefix(5).map { DailyWeatherViewModel(dailyData: $0) }
-    }
-    
 
-    func fetchWeatherData(completion: @escaping (Result<WeatherData, APIError>) -> Void) {
-        
+        delegate?.updateWeather()
+    }
+
+    var data = [WeatherData]()
+    
+    func fetchWeatherData(by cityName: String) {
         // Replace your actual API key
         let apiKey = "edb8b212378fdca33a7ce86abac712d4"
-        let apiUrlString = "https://api.openweathermap.org/data/2.8/onecall?lat=41.311081&lon=69.240562&exclude=hourly,minutely&limit=6&appid=\(apiKey)"
-
+        let apiUrlString =  "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&units=metric&appid=\(apiKey)"
         guard let apiUrl = URL(string: apiUrlString) else {
-            completion(.failure(.invalidURL))
             return
         }
-
-        NetworkingService.shared.fetchData(from: apiUrl) { [weak self] (result: Result<WeatherData, APIError>) in
+        
+        NetworkingService.shared.fetchData(from: apiUrl) { [weak self] (result: Result<[WeatherData], APIError>) in
             switch result {
             case .success(let weatherData):
                 // Update weather properties
+                self.data = weatherData
                 self?.updateWeatherData(weatherData: weatherData)
-                completion(.success(weatherData))
             case .failure(let error):
-                completion(.failure(error))
+                print(error)
             }
         }
     }
@@ -103,5 +113,3 @@ struct DailyWeatherViewModel {
         return dateFormatter.string(from: date)
     }
 }
-
-

@@ -15,7 +15,7 @@ enum APIError: Error {
 }
 
 class NetworkingService {
-    
+
     static let shared = NetworkingService()
 
     private init() {}

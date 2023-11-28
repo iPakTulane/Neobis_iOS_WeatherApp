@@ -8,10 +8,8 @@
 import UIKit
 import SnapKit
 
+
 class DailyCell: UICollectionViewCell {
-    
-    // MARK: - View model
-    var viewModel: WeatherViewModel
     
     // MARK: - UI components
     private lazy var dayLabel: UILabel = {
@@ -47,7 +45,6 @@ class DailyCell: UICollectionViewCell {
     
     // MARK: - Initialization
     override init(frame: CGRect) {
-        viewModel = WeatherViewModel()
         super.init(frame: frame)
         setupHierarchy()
         setupConstraints()
@@ -66,7 +63,6 @@ class DailyCell: UICollectionViewCell {
     }
 
     func setupConstraints() {
-
         // Setup dayLabel
         dayLabel.snp.makeConstraints { make in
             make.centerX.equalTo(contentView)
@@ -95,16 +91,15 @@ class DailyCell: UICollectionViewCell {
             make.width.equalTo(25)
             make.height.equalTo(15)
         }
-        
     }
     
     // MARK: - Configure UI
-    func configureCell(with data: WeatherData) {
-        dayLabel.text = String(data.current.dt)
-        iconView.image = UIImage(named: data.current.weather[0].icon)
-        temperatureLabel.text = String(data.current.temp)
+    func configureCell(with dailyWeather: DailyWeatherViewModel) {
+        dayLabel.text = dailyWeather.weekday
+        iconView.image = UIImage(named: dailyWeather.weatherIcon)
+        temperatureLabel.text = dailyWeather.temperature
     }
-    
 }
+
 
 

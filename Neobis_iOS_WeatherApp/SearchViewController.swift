@@ -10,9 +10,11 @@ import SnapKit
 
 class SearchViewController: UIViewController {
     
+    let viewModel = WeatherViewModel()
+    
     // MARK: - UI components
     
-    private lazy var containerView: UIImageView = {
+    var containerView: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .white
         image.layer.cornerRadius = 40.0
@@ -21,7 +23,7 @@ class SearchViewController: UIViewController {
         return image
     }()
     
-    private lazy var closeButton: UIButton = {
+    var closeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "close"), for: .normal)
         button.tintColor = .black
@@ -29,7 +31,7 @@ class SearchViewController: UIViewController {
         return button
     }()
     
-    let searchField: UITextField = {
+    var searchField: UITextField = {
         let field = UITextField()
         field.placeholder = "SEARCH LOCATION"
         field.autocapitalizationType = .none
@@ -41,17 +43,25 @@ class SearchViewController: UIViewController {
         return field
     }()
     
-    private lazy var searchLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10)
-        label.textColor = .black
-        label.textAlignment = .left
-        label.text = "London"
-        label.layer.borderColor = .none
-        return label
+//    private lazy var searchLabel: UILabel = {
+//        let label = UILabel()
+//        label.font = UIFont.systemFont(ofSize: 10)
+//        label.textColor = .black
+//        label.textAlignment = .left
+//        label.text = "London"
+//        label.layer.borderColor = .none
+//        return label
+//    }()
+    
+    var searchButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "search"), for: .normal)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(didTapSearch), for: .touchUpInside)
+        return button
     }()
     
-    private lazy var gradientLayer: CAGradientLayer = {
+    var gradientLayer: CAGradientLayer = {
         let gradient = CAGradientLayer()
         return gradient
     }()
@@ -69,7 +79,8 @@ class SearchViewController: UIViewController {
         view.addSubview(containerView)
         containerView.addSubview(closeButton)
         containerView.addSubview(searchField)
-        containerView.addSubview(searchLabel)
+//        containerView.addSubview(searchLabel)
+        searchField.addSubview(searchButton)
     }
     
     func setupConstraints() {
@@ -97,12 +108,19 @@ class SearchViewController: UIViewController {
             make.height.equalTo(45)
         }
         
-        // searchLabel
-        searchLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(containerView)
-            make.top.equalTo(searchField.snp.bottom).offset(30)
-            make.width.equalTo(305)
-            make.height.equalTo(45)
+//        // searchLabel
+//        searchLabel.snp.makeConstraints { make in
+//            make.centerX.equalTo(containerView)
+//            make.top.equalTo(searchField.snp.bottom).offset(30)
+//            make.width.equalTo(305)
+//            make.height.equalTo(45)
+//        }
+        
+        // searchButton
+        searchButton.snp.makeConstraints { make in
+            make.centerY.equalTo(searchField.snp.centerY)
+            make.trailing.equalTo(searchField.snp.trailing).offset(-10)
+            make.width.height.equalTo(30)
         }
     }
     
@@ -120,8 +138,18 @@ class SearchViewController: UIViewController {
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
+    // MARK: - Add targets
     @objc func didTapClose() {
         let vc = WeatherViewController()
         present(vc, animated: true, completion: nil)
     }
+
+    @objc func didTapSearch() {
+        
+        guard let name = searchField.text else {
+            return
+        }
+        viewModel.fetchWeatherData(by: name)
+    }
+    
 }
