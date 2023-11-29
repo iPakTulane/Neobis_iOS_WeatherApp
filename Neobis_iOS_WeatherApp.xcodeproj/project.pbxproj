@@ -8,33 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		5FEEEF2E954197C1206DF90D /* Pods_Neobis_iOS_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0F9EAFB816AB4F48A03134 /* Pods_Neobis_iOS_WeatherApp.framework */; };
+		BA375D282B178A4800A84675 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA375D272B178A4800A84675 /* Service.swift */; };
+		BA375D2A2B178A5A00A84675 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA375D292B178A5A00A84675 /* WeatherModel.swift */; };
+		BA375D2C2B178A6A00A84675 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA375D2B2B178A6A00A84675 /* ViewController.swift */; };
+		BA375D2E2B178A7C00A84675 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA375D2D2B178A7C00A84675 /* MainView.swift */; };
+		BA375D302B178A8800A84675 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA375D2F2B178A8800A84675 /* SearchViewController.swift */; };
+		BA375D322B178A9800A84675 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA375D312B178A9800A84675 /* SearchView.swift */; };
+		BA375D342B178AA900A84675 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA375D332B178AA900A84675 /* ViewModel.swift */; };
 		BAE73A542B0E199A0071D75A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A532B0E199A0071D75A /* AppDelegate.swift */; };
-		BAE73A582B0E199A0071D75A /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A572B0E199A0071D75A /* WeatherViewController.swift */; };
 		BAE73A5D2B0E199B0071D75A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE73A5C2B0E199B0071D75A /* Assets.xcassets */; };
 		BAE73A602B0E199B0071D75A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE73A5E2B0E199B0071D75A /* LaunchScreen.storyboard */; };
-		BAE73A682B0E644B0071D75A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A672B0E644B0071D75A /* SearchViewController.swift */; };
-		BAE73A6A2B0E64780071D75A /* DailyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A692B0E64780071D75A /* DailyCell.swift */; };
-		BAE73A772B0F225D0071D75A /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A762B0F225D0071D75A /* WeatherView.swift */; };
-		BAE73A7B2B0FAE8C0071D75A /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A7A2B0FAE8C0071D75A /* WeatherViewModel.swift */; };
-		BAE73A8B2B139EFE0071D75A /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A8A2B139EFE0071D75A /* NetworkingService.swift */; };
-		BAE73A8D2B13A2070071D75A /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73A8C2B13A2070071D75A /* WeatherData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		288DA3AA72603800E1AC7497 /* Pods-Neobis_iOS_WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neobis_iOS_WeatherApp.release.xcconfig"; path = "Target Support Files/Pods-Neobis_iOS_WeatherApp/Pods-Neobis_iOS_WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		88E31B2FDDCE73E57CCA495C /* Pods-Neobis_iOS_WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neobis_iOS_WeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-Neobis_iOS_WeatherApp/Pods-Neobis_iOS_WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
+		BA375D272B178A4800A84675 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		BA375D292B178A5A00A84675 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		BA375D2B2B178A6A00A84675 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BA375D2D2B178A7C00A84675 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		BA375D2F2B178A8800A84675 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BA375D312B178A9800A84675 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		BA375D332B178AA900A84675 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		BAE73A502B0E199A0071D75A /* Neobis_iOS_WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neobis_iOS_WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE73A532B0E199A0071D75A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BAE73A572B0E199A0071D75A /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		BAE73A5C2B0E199B0071D75A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAE73A5F2B0E199B0071D75A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAE73A612B0E199B0071D75A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAE73A672B0E644B0071D75A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		BAE73A692B0E64780071D75A /* DailyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCell.swift; sourceTree = "<group>"; };
-		BAE73A762B0F225D0071D75A /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
-		BAE73A7A2B0FAE8C0071D75A /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
-		BAE73A8A2B139EFE0071D75A /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
-		BAE73A8C2B13A2070071D75A /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		FE0F9EAFB816AB4F48A03134 /* Pods_Neobis_iOS_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Neobis_iOS_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -59,6 +59,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		BA375D262B178A3900A84675 /* new */ = {
+			isa = PBXGroup;
+			children = (
+				BA375D272B178A4800A84675 /* Service.swift */,
+				BA375D292B178A5A00A84675 /* WeatherModel.swift */,
+				BA375D2B2B178A6A00A84675 /* ViewController.swift */,
+				BA375D2D2B178A7C00A84675 /* MainView.swift */,
+				BA375D2F2B178A8800A84675 /* SearchViewController.swift */,
+				BA375D312B178A9800A84675 /* SearchView.swift */,
+				BA375D332B178AA900A84675 /* ViewModel.swift */,
+			);
+			path = new;
+			sourceTree = "<group>";
+		};
 		BAE73A472B0E199A0071D75A = {
 			isa = PBXGroup;
 			children = (
@@ -80,43 +94,13 @@
 		BAE73A522B0E199A0071D75A /* Neobis_iOS_WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				BA375D262B178A3900A84675 /* new */,
 				BAE73A532B0E199A0071D75A /* AppDelegate.swift */,
-				BAE73A572B0E199A0071D75A /* WeatherViewController.swift */,
-				BAE73A672B0E644B0071D75A /* SearchViewController.swift */,
-				BAE73A732B0E66920071D75A /* Model */,
-				BAE73A722B0E668D0071D75A /* View */,
-				BAE73A712B0E66840071D75A /* ViewModel */,
 				BAE73A5C2B0E199B0071D75A /* Assets.xcassets */,
 				BAE73A5E2B0E199B0071D75A /* LaunchScreen.storyboard */,
 				BAE73A612B0E199B0071D75A /* Info.plist */,
 			);
 			path = Neobis_iOS_WeatherApp;
-			sourceTree = "<group>";
-		};
-		BAE73A712B0E66840071D75A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				BAE73A7A2B0FAE8C0071D75A /* WeatherViewModel.swift */,
-				BAE73A8A2B139EFE0071D75A /* NetworkingService.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		BAE73A722B0E668D0071D75A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BAE73A762B0F225D0071D75A /* WeatherView.swift */,
-				BAE73A692B0E64780071D75A /* DailyCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BAE73A732B0E66920071D75A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BAE73A8C2B13A2070071D75A /* WeatherData.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		E10AACB272D6002ABEAC03C0 /* Frameworks */ = {
@@ -241,14 +225,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAE73A8B2B139EFE0071D75A /* NetworkingService.swift in Sources */,
-				BAE73A682B0E644B0071D75A /* SearchViewController.swift in Sources */,
-				BAE73A7B2B0FAE8C0071D75A /* WeatherViewModel.swift in Sources */,
-				BAE73A582B0E199A0071D75A /* WeatherViewController.swift in Sources */,
-				BAE73A6A2B0E64780071D75A /* DailyCell.swift in Sources */,
-				BAE73A772B0F225D0071D75A /* WeatherView.swift in Sources */,
+				BA375D2E2B178A7C00A84675 /* MainView.swift in Sources */,
+				BA375D2C2B178A6A00A84675 /* ViewController.swift in Sources */,
+				BA375D2A2B178A5A00A84675 /* WeatherModel.swift in Sources */,
+				BA375D302B178A8800A84675 /* SearchViewController.swift in Sources */,
+				BA375D282B178A4800A84675 /* Service.swift in Sources */,
+				BA375D342B178AA900A84675 /* ViewModel.swift in Sources */,
+				BA375D322B178A9800A84675 /* SearchView.swift in Sources */,
 				BAE73A542B0E199A0071D75A /* AppDelegate.swift in Sources */,
-				BAE73A8D2B13A2070071D75A /* WeatherData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +287,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -366,7 +350,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
