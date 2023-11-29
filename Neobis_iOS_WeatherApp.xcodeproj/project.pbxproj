@@ -59,20 +59,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		BA375D262B178A3900A84675 /* new */ = {
-			isa = PBXGroup;
-			children = (
-				BA375D272B178A4800A84675 /* Service.swift */,
-				BA375D292B178A5A00A84675 /* WeatherModel.swift */,
-				BA375D2B2B178A6A00A84675 /* ViewController.swift */,
-				BA375D2D2B178A7C00A84675 /* MainView.swift */,
-				BA375D2F2B178A8800A84675 /* SearchViewController.swift */,
-				BA375D312B178A9800A84675 /* SearchView.swift */,
-				BA375D332B178AA900A84675 /* ViewModel.swift */,
-			);
-			path = new;
-			sourceTree = "<group>";
-		};
 		BAE73A472B0E199A0071D75A = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +80,14 @@
 		BAE73A522B0E199A0071D75A /* Neobis_iOS_WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				BA375D262B178A3900A84675 /* new */,
 				BAE73A532B0E199A0071D75A /* AppDelegate.swift */,
+				BA375D2B2B178A6A00A84675 /* ViewController.swift */,
+				BA375D332B178AA900A84675 /* ViewModel.swift */,
+				BA375D292B178A5A00A84675 /* WeatherModel.swift */,
+				BA375D272B178A4800A84675 /* Service.swift */,
+				BA375D2D2B178A7C00A84675 /* MainView.swift */,
+				BA375D2F2B178A8800A84675 /* SearchViewController.swift */,
+				BA375D312B178A9800A84675 /* SearchView.swift */,
 				BAE73A5C2B0E199B0071D75A /* Assets.xcassets */,
 				BAE73A5E2B0E199B0071D75A /* LaunchScreen.storyboard */,
 				BAE73A612B0E199B0071D75A /* Info.plist */,
