@@ -17,13 +17,17 @@ protocol WeatherViewDelegate: AnyObject {
 
 class WeatherView: UIView {
     
-    weak var delegate: WeatherViewDelegate?
+//    weak var delegate: WeatherViewDelegate?
     
     // MARK: - UI components
     var searchButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "search"), for: .normal)
-        button.tintColor = .black
+        let button = UIButton()
+//        button.setImage(UIImage(named: "search"), for: .normal)
+//        button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        button.setBackgroundImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        button.tintColor = UIColor.black
+//        button.tintColor = .black
+//        button.backgroundColor = .red
         return button
     }()
     
@@ -177,7 +181,8 @@ class WeatherView: UIView {
         super.init(frame: .zero)
         setupHierarchy()
         setupConstraints()
-        setupGradient()
+//        setupGradient()
+        self.backgroundColor = .systemBlue
     }
     
     required init?(coder: NSCoder) {
@@ -210,9 +215,9 @@ class WeatherView: UIView {
         
         // searchButton
         searchButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
-            make.width.height.equalTo(30)
+            make.top.equalToSuperview().inset(100)
+            make.right.equalToSuperview().inset(50)
+            make.width.height.equalTo(80)
         }
         
         // dateLabel
@@ -328,8 +333,10 @@ class WeatherView: UIView {
             make.centerX.equalToSuperview()
             make.height.equalTo(250)
             make.bottom.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
+//            make.leading.equalToSuperview()
+//            make.trailing.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
         }
         
         // collectionView
@@ -351,11 +358,12 @@ class WeatherView: UIView {
         gradientLayer.bounds = bounds.insetBy(dx: -0.5 * bounds.size.width, dy: -0.5 * bounds.size.height)
         gradientLayer.position = center
         layer.insertSublayer(gradientLayer, at: 0)
+//        self.layer.addSublayer(gradientLayer)
     }
     
-    // MARK: - Add button target 
-    func didTapSearch() {
-        self.delegate?.didTapSearch()
-    }
+    // MARK: - Add button target
+//    func didTapSearch() {
+//        self.delegate?.didTapSearch()
+//    }
     
 }

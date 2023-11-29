@@ -14,8 +14,8 @@ class SearchViewController: UIViewController {
     
     // MARK: - UI components
     
-    var containerView: UIImageView = {
-        let image = UIImageView()
+    var containerView: UIView = {
+        let image = UIView()
         image.backgroundColor = .white
         image.layer.cornerRadius = 40.0
         image.clipsToBounds = true
@@ -55,7 +55,7 @@ class SearchViewController: UIViewController {
     
     var searchButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "search"), for: .normal)
+        button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
         button.tintColor = .black
         button.addTarget(self, action: #selector(didTapSearch), for: .touchUpInside)
         return button
@@ -80,7 +80,8 @@ class SearchViewController: UIViewController {
         containerView.addSubview(closeButton)
         containerView.addSubview(searchField)
 //        containerView.addSubview(searchLabel)
-        searchField.addSubview(searchButton)
+//        searchField.addSubview(searchButton)
+        containerView.addSubview(searchButton)
     }
     
     func setupConstraints() {
@@ -118,8 +119,8 @@ class SearchViewController: UIViewController {
         
         // searchButton
         searchButton.snp.makeConstraints { make in
-            make.centerY.equalTo(searchField.snp.centerY)
-            make.trailing.equalTo(searchField.snp.trailing).offset(-10)
+            make.centerY.equalTo(searchField)
+            make.right.equalToSuperview().inset(17)
             make.width.height.equalTo(30)
         }
     }
@@ -149,7 +150,15 @@ class SearchViewController: UIViewController {
         guard let name = searchField.text else {
             return
         }
-        viewModel.fetchWeatherData(by: name)
+        viewModel.fetchWeatherData(by: name) { result in
+            switch result {
+            case .success:
+                print("City is: ", name)
+                print("Success")
+            case .failure:
+                print("Error")
+            }
+        }
     }
     
 }

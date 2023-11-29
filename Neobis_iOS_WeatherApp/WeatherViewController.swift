@@ -11,14 +11,16 @@ import SnapKit
 
 class WeatherViewController: UIViewController {
 
-    var weatherViewModel = WeatherViewModel()
-    let weatherView = WeatherView(frame: UIScreen.main.bounds)
+    var viewModel = WeatherViewModel()
+    let weatherView = WeatherView()
+    let weatherData = WeatherData()
     
-    var weather: WeatherData
+//    var weather: WeatherData
 
     // MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
+        view = weatherView
         setupUI()
         fetchWeatherData()
         setupTargets()
@@ -30,6 +32,7 @@ class WeatherViewController: UIViewController {
 
     // MARK: - Setup UI
     func setupUI() {
+        weatherView.searchButton.addTarget(self, action: #selector(presentSearch), for: .touchUpInside)
         view.addSubview(weatherView)
         // Weather view constraints
         weatherView.snp.makeConstraints { make in
@@ -46,8 +49,13 @@ class WeatherViewController: UIViewController {
 
     // Fetch weather data
     func fetchWeatherData() {
-        weatherViewModel.delegate = self
-        weatherViewModel.fetchWeatherData()
+//        weatherViewModel.delegate = self
+//        weatherViewModel.fetchWeatherData()
+    }
+    
+    @objc func presentSearch() {
+        let vc = SearchViewController()
+        self.present(vc, animated: true)
     }
     
 }
@@ -65,32 +73,30 @@ extension WeatherViewController: WeatherViewDelegate {
 
 
 // MARK: - WeatherViewModelDelegate
-extension WeatherViewController: WeatherViewModelDelegate {
+extension WeatherViewController {
+//    var data = [WeatherData]()
+    
     
     func updateUI(with data: WeatherData) {
         
         DispatchQueue.main.async {
+            self.weatherView.iconView.image = UIImage(named: weatherData.current.weather[1].icon)
             
-            self.weatherView.temperatureLabel.text = "\(Int(round(weatherModel.list[1].main.temp)))°C"
-
-//            self.weatherView.humidityData.text = "\(weatherModel.list[1].main.humidity)%"
-//
-//            self.weatherView.airPressureData.text = "\(weatherModel.list[1].main.pressure) mb"
-//
-//            self.weatherView.windStatusData.text = "\(Int(round(weatherModel.list[1].wind.speed))) mph"
-//
-//            self.weatherView.visibilityData.text = "\(String(format: "%.1f",(Double(weatherModel.list[1].visibility) / 1609.0))) miles"
-//
-//            self.weatherView.weatherImage.image = UIImage(named: weatherModel.list[1].weather[0].icon)
-//
-//            self.weatherView.cityName.text = weatherModel.city.name
-//
-//            self.weatherView.dateText.text = self.viewModel.convertDateString(weatherModel.list[1].dt_txt)
-//
-//            self.viewModel.getHighestTemp(model: weatherModel)
-
+            self.weatherView.temperatureLabel.text = "\(Int(round(weatherData.current.temp)))°C"
+            
+            self.weatherView.windInfoLabel.text = "\(Int(round(weatherData.current.windSpeed))) mph"
+            
+            self.weatherView.humidityInfoLabel.text =  "\(weatherData.current.humidity)%"
+            
+            self.weatherView.visibilityInfoLabel.text =  "\(String(format: "%.1f",(Double(weatherData.current.visibility) / 1609.0))) miles"
+            
+            self.weatherView.airInfoLabel.text =  "\(weatherData.current.pressure) mb"
+            
             self.weatherView.collectionView.reloadData()
-
+            
+            // self.weatherView.cityName.text = weatherModel.city.name
+            // self.weatherView.dateText.text = self.viewModel.convertDateString(weatherModel.list[1].dt_txt)
+            
         }
     }
 }
@@ -100,13 +106,13 @@ extension WeatherViewController: WeatherViewModelDelegate {
 extension WeatherViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return weatherViewModel.dailyWeather.count
+        return viewModel.dailyWeather.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DailyCell", for: indexPath) as! DailyCell
-        let dailyWeather = weatherViewModel.dailyWeather[indexPath.item]
-        cell.configure(with: dailyWeather)
+        let dailyWeather = viewModel.dailyWeather[indexPath.item]
+        cell.configureCell(with: dailyWeather)
         return cell
     }
 
